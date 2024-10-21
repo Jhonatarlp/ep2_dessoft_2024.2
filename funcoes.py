@@ -39,7 +39,7 @@ def posiciona_frota(info_frota):
             x.append(0)
         tabuleiro.append(x)
 
-    for nome, posicao in info_frota.items():
+    for posicao in info_frota.values():
         for casas in posicao:
             for pos in casas:
                 lin = pos[0]
