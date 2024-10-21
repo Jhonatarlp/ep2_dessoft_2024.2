@@ -28,3 +28,22 @@ def faz_jogada(tabuleiro, linha,coluna):
     else:
         tabuleiro[linha][coluna]='-'
     return tabuleiro
+
+
+
+def posiciona_frota(info_frota):
+    tabuleiro = []
+    for l in range(10):
+        x = []
+        for c in range(10):
+            x.append(0)
+        tabuleiro.append(x)
+
+    for nome, posicao in info_frota.items():
+        for casas in posicao:
+            for pos in casas:
+                lin = pos[0]
+                col = pos[1]
+                tabuleiro[lin][col] = 1
+                
+    return tabuleiro
