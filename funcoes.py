@@ -8,6 +8,8 @@ def define_posicoes(linha, coluna, orientacao, tamanho):
             posicoes_lista.append([linha,c])
     return posicoes_lista
 
+
+
 def preenche_frota(info_frota, nome_navio, linha, coluna, orientacao, tamanho):
     posicao_navio = define_posicoes(linha, coluna, orientacao, tamanho)
 
@@ -17,3 +19,12 @@ def preenche_frota(info_frota, nome_navio, linha, coluna, orientacao, tamanho):
         info_frota[nome_navio] = [posicao_navio]
     
     return info_frota
+
+
+
+def faz_jogada(tabuleiro, linha,coluna):
+    if tabuleiro[linha][coluna]==1:
+        tabuleiro[linha][coluna]=='X'
+    else:
+        tabuleiro[linha][coluna]=='-'
+    return tabuleiro
