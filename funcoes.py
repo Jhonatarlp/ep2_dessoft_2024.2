@@ -11,8 +11,9 @@ def define_posicoes(linha, coluna, orientacao, tamanho):
 def preenche_frota(info_frota, nome_navio, linha, coluna, orientacao, tamanho):
     posicao_navio = define_posicoes(linha, coluna, orientacao, tamanho)
 
-    info_frota[nome_navio] = posicao_navio
-
+    if nome_navio in info_frota:
+        info_frota[nome_navio].append(posicao_navio)
+    else:
+        info_frota[nome_navio] = [posicao_navio]
+    
     return info_frota
-
-
