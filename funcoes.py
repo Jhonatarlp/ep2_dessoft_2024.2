@@ -62,3 +62,20 @@ def afundados(frota, tabuleiro):
                 afundados += 1
 
     return afundados
+
+
+
+def posicao_valida(info_frota, linha, coluna, orientacao, tamanho):
+    navio = define_posicoes(linha, coluna, orientacao, tamanho)
+
+    for posicao in navio:
+        if posicao[0] > 9:
+            return False
+        if posicao[1] > 9:
+            return False
+        for lista_navios in info_frota.values():
+            for barco in lista_navios:
+                for casa in barco:
+                    if posicao == casa:
+                        return False
+    return True
