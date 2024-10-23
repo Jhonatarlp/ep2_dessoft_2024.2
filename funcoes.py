@@ -79,3 +79,6 @@ def posicao_valida(info_frota, linha, coluna, orientacao, tamanho):
                     if posicao == casa:
                         return False
     return True
+
+
+
