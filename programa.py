@@ -95,10 +95,17 @@ while jogando:
             [[7, 6]]
         ]
     }
+    pos_total = 0
+    for listas in frota_oponente.values():
+        for navio in listas:
+            for casas in navio:
+                pos_total += 1
+            
 
     tabuleiro_oponente = posiciona_frota(frota_oponente)
     jogador = posiciona_frota(info_frota)
     ataques = []
+    
 
     print(monta_tabuleiros(jogador, tabuleiro_oponente))
 
@@ -122,8 +129,11 @@ while jogando:
         ataques.append([jogada_jogador_linha, jogada_jogador_coluna])
 
         jogada_momento = faz_jogada(tabuleiro_oponente, jogada_jogador_linha, jogada_jogador_coluna)
+        tabuleiro_oponente = jogada_momento
 
-        if afundados(frota_oponente, tabuleiro_oponente):
+        if afundados(frota_oponente, tabuleiro_oponente) == pos_total:
             print('Parabéns! Você derrubou todos os navios do seu oponente!')
             jogando = False
             break
+        else:
+            print(monta_tabuleiros(jogador, tabuleiro_oponente))
