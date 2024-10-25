@@ -59,9 +59,9 @@ def afundados(frota, tabuleiro):
             for posicao in navio:
                 if tabuleiro[posicao[0]][posicao[1]] != 'X':
                     afundado = False
+                    break
             if afundado:
                 afundados += 1
-
     return afundados
 
 
