@@ -1,5 +1,6 @@
 from funcoes import *
 import random
+random.seed(2)
 
 jogando = True
 
@@ -130,8 +131,7 @@ while jogando:
 
             if [ataque_linha_oponente, ataque_coluna_oponente] not in ataques_oponente:
                 ataques_oponente.append([ataque_linha_oponente, ataque_coluna_oponente])
-                print(f"Seu oponente está atacando na linha {ataque_linha_oponente} e coluna {ataque_coluna_oponente}")
-                faz_jogada(tabuleiro_jogador, ataque_linha_oponente, ataque_coluna_oponente)
+                print(f'Seu oponente está atacando na linha {ataque_linha_oponente} e coluna {ataque_coluna_oponente}')
                 break
 
         if afundados(info_frota, tabuleiro_jogador) == sum(len(lista) for lista in info_frota.values()):
