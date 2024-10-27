@@ -1,5 +1,6 @@
 from funcoes import *
 import random
+random.seed(2)
 
 jogando = True
 
@@ -152,3 +153,7 @@ while jogando:
                         jogando = False
                         break
                     break
+            if not jogando:
+                break
+        if not jogando:
+            break
