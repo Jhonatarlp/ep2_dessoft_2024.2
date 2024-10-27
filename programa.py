@@ -100,9 +100,6 @@ while jogando:
 
     while True:
         
-        print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
-
-        
         jogada_jogador_linha = int(input("Jogador, qual linha deseja atacar? "))
         while jogada_jogador_linha > 9 or jogada_jogador_linha < 0:
             print('Linha inválida!')
@@ -131,7 +128,8 @@ while jogando:
 
             if [ataque_linha_oponente, ataque_coluna_oponente] not in ataques_oponente:
                 ataques_oponente.append([ataque_linha_oponente, ataque_coluna_oponente])
-                print(f'Seu oponente está atacando na linha {ataque_linha_oponente} e coluna {ataque_coluna_oponente}')
+                print(f"Seu oponente está atacando na linha {ataque_linha_oponente} e coluna {ataque_coluna_oponente}")
+                faz_jogada(tabuleiro_jogador, ataque_linha_oponente, ataque_coluna_oponente)
                 break
 
         if afundados(info_frota, tabuleiro_jogador) == sum(len(lista) for lista in info_frota.values()):
