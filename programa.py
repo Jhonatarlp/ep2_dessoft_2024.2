@@ -91,6 +91,7 @@ while jogando:
     }
     
     total_navios_oponente = sum(len(lista) for lista in frota_oponente.values())
+    total_navios_jogador = sum(len(lista) for lista in info_frota.values())
     tabuleiro_oponente = posiciona_frota(frota_oponente)
     tabuleiro_jogador = posiciona_frota(info_frota)
     ataques = []
@@ -132,12 +133,12 @@ while jogando:
                     print(f"Seu oponente está atacando na linha {ataque_linha_oponente} e coluna {ataque_coluna_oponente}.")
                     faz_jogada(tabuleiro_jogador, ataque_linha_oponente, ataque_coluna_oponente)
 
-                    if afundados(info_frota, tabuleiro_jogador) == sum(len(lista) for lista in info_frota.values()):
+                    if afundados(info_frota, tabuleiro_jogador) == total_navios_jogador:
                         print('Xi! O oponente derrubou toda a sua frota =(')
                         jogando = False
                         break
                     break
-            if not jogando:
-                break
         if not jogando:
-            break
+                break
+    if not jogando:
+        break
