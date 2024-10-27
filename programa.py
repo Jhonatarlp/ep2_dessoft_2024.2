@@ -1,7 +1,6 @@
 from funcoes import *
 import random
 
-
 jogando = True
 
 while jogando:
@@ -18,7 +17,7 @@ while jogando:
         print('Insira as informações referentes ao navio porta-aviões que possui tamanho 4')
         linha = int(input('Linha: '))
         coluna = int(input('Coluna: '))
-        orientacao = int(input('Orientação: [1]Vertical [2]Horizontal >'))
+        orientacao = int(input('Orientação: [1] Vertical [2] Horizontal '))
         orientacao = 'vertical' if orientacao == 1 else 'horizontal'
 
         if posicao_valida(info_frota, linha, coluna, orientacao, 4):
@@ -33,7 +32,7 @@ while jogando:
         print('Insira as informações referentes ao navio navio-tanque que possui tamanho 3')
         linha = int(input('Linha: '))
         coluna = int(input('Coluna: '))
-        orientacao = int(input('Orientação: [1]Vertical [2]Horizontal >'))
+        orientacao = int(input('Orientação: [1] Vertical [2] Horizontal '))
         orientacao = 'vertical' if orientacao == 1 else 'horizontal'
 
         if posicao_valida(info_frota, linha, coluna, orientacao, 3):
@@ -48,7 +47,7 @@ while jogando:
         print('Insira as informações referentes ao navio contratorpedeiro que possui tamanho 2')
         linha = int(input('Linha: '))
         coluna = int(input('Coluna: '))
-        orientacao = int(input('Orientação: [1]Vertical [2]Horizontal >'))
+        orientacao = int(input('Orientação: [1] Vertical [2] Horizontal '))
         orientacao = 'vertical' if orientacao == 1 else 'horizontal'
 
         if posicao_valida(info_frota, linha, coluna, orientacao, 2):
@@ -99,6 +98,10 @@ while jogando:
     print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
 
     while True:
+        
+        print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
+
+        
         jogada_jogador_linha = int(input("Jogador, qual linha deseja atacar? "))
         while jogada_jogador_linha > 9 or jogada_jogador_linha < 0:
             print('Linha inválida!')
@@ -112,7 +115,7 @@ while jogando:
         if [jogada_jogador_linha, jogada_jogador_coluna] in ataques:
             print(f'A posição linha {jogada_jogador_linha} e coluna {jogada_jogador_coluna} já foi informada anteriormente!')
             continue
-            
+
         ataques.append([jogada_jogador_linha, jogada_jogador_coluna])
         faz_jogada(tabuleiro_oponente, jogada_jogador_linha, jogada_jogador_coluna)
 
@@ -122,19 +125,16 @@ while jogando:
             break
 
         while True:
-                ataque_linha_oponente = random.randint(0, 9)
-                ataque_coluna_oponente = random.randint(0, 9)
+            ataque_linha_oponente = random.randint(0, 9)
+            ataque_coluna_oponente = random.randint(0, 9)
 
-                if [ataque_linha_oponente, ataque_coluna_oponente] not in ataques_oponente:
-                    ataques_oponente.append([ataque_linha_oponente, ataque_coluna_oponente])
-                    print(f"Seu oponente está atacando na linha {ataque_linha_oponente} e coluna {ataque_coluna_oponente}.")
-                    faz_jogada(tabuleiro_jogador, ataque_linha_oponente, ataque_coluna_oponente)
-                    break
+            if [ataque_linha_oponente, ataque_coluna_oponente] not in ataques_oponente:
+                ataques_oponente.append([ataque_linha_oponente, ataque_coluna_oponente])
+                print(f"Seu oponente está atacando na linha {ataque_linha_oponente} e coluna {ataque_coluna_oponente}")
+                faz_jogada(tabuleiro_jogador, ataque_linha_oponente, ataque_coluna_oponente)
+                break
 
-                if afundados(info_frota, tabuleiro_jogador) == sum(len(lista) for lista in info_frota.values()):
-                    print('Xi! O oponente derrubou toda a sua frota =(')
-                    jogando = False
-                    break
-
-        print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
-
+        if afundados(info_frota, tabuleiro_jogador) == sum(len(lista) for lista in info_frota.values()):
+            print('Xi! O oponente derrubou toda a sua frota =(')
+            jogando = False
+            break
