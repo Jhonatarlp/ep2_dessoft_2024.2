@@ -138,3 +138,5 @@ while jogando:
             print('Xi! O oponente derrubou toda a sua frota =(')
             jogando = False
             break
+        else:
+            print(monta_tabuleiros(tabuleiro_jogador,tabuleiro_oponente))
