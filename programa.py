@@ -1,4 +1,6 @@
 from funcoes import *
+import random
+
 jogando = True
 
 while jogando:
@@ -102,6 +104,7 @@ while jogando:
     tabuleiro_oponente = posiciona_frota(frota_oponente)
     jogador = posiciona_frota(info_frota)
     ataques = []
+    ataques_oponente = []
     
 
     print(monta_tabuleiros(jogador, tabuleiro_oponente))
@@ -134,3 +137,18 @@ while jogando:
             break
         else:
             print(monta_tabuleiros(jogador, tabuleiro_oponente))
+            while True:
+                ataque_linha_oponente = random.randint(0, 9)
+                ataque_coluna_oponente = random.randint(0, 9)
+
+                if [ataque_linha_oponente, ataque_coluna_oponente] not in ataques_oponente:
+                    ataques_oponente.append([ataque_linha_oponente, ataque_coluna_oponente])
+
+                    print(f"Seu oponente está atacando na linha {ataque_linha_oponente} e coluna {ataque_coluna_oponente}.")
+                    faz_jogada(jogador, ataque_linha_oponente, ataque_coluna_oponente)
+
+                    if afundados(info_frota, jogador) == sum(len(lista) for lista in info_frota.values()):
+                        print('Xi! O oponente derrubou toda a sua frota =(')
+                        jogando = False
+                        break
+                    break
