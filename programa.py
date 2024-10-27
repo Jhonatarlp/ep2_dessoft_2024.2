@@ -138,3 +138,4 @@ while jogando:
             break
         else:
             print(monta_tabuleiros(tabuleiro_jogador,tabuleiro_oponente))
+            
